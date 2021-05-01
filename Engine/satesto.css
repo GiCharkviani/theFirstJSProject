@@ -1,0 +1,110 @@
+body{
+    display: grid;
+    grid-template-columns: 10% 1fr 1fr 10%;
+}
+
+.container1 {
+    grid-area: 2 / 2 / 2 / 2;
+    justify-content: center;
+    align-items: center;
+    visibility: visible;
+}
+.containerForEntrance {
+    grid-area: 2 / 2 / 2 / span 2;
+    align-self: center;
+    justify-self: center;
+    width: 50%;
+}
+.beginning {
+    width: 100%;
+}
+.sheqmeni {
+    text-align: center;
+}
+
+
+.tabling{
+    grid-area: 2/3/2/span 3;
+    width: 100%;
+    overflow: auto;
+}
+
+@media only screen and (max-width: 1065px){
+    .tabling{
+        grid-area: 3/2/3/ span 2;
+    }
+    .container1 {
+        grid-area: 2 / 2 / 2 / span 2;
+
+    }
+    body{
+        display: grid;
+        grid-template-columns: 5% 1fr 40%;
+    }
+}
+
+.washla{
+    float: right;
+}
+
+#dawkeba{
+    background-color: transparent;
+    border-radius: 10px;
+    border: 0.5px solid black;
+    transition: .5s ease;
+    font-family: 'Ubuntu Mono', monospace;
+}
+#dawkeba:hover {
+    background-color: rgb(12, 99, 238);
+    color: white;
+}
+
+.dawkeba {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    width: 10vw;
+    font-size: 1.5em!important;
+}
+
+
+
+@media only screen and (max-width: 1206px) and (min-width:945px){
+    .dawkeba {
+        width: 20vw;
+        font-size: 1.7em!important;
+        height: 50px;
+    }
+    .containerForEntrance {
+        grid-area: 2 / 1 / 2 / span 4;
+    }
+
+}
+
+@media only screen and (max-width: 945px){
+    .containerForEntrance {
+        grid-area: 2 / 1 / 2 / span 4;
+    }
+    .showUpResults{
+        width: 100%;
+    }
+    .w-10{
+        width: 200px;
+    }
+}
+
+@media only screen and (max-width: 1030px){
+    .dawkeba{
+        width: 100%;
+        height: 50px;
+        font-size: 1.7em!important;
+    }
+
+}
+
+
+.w-10{
+    width: 300px;
+}
+
+
+
+

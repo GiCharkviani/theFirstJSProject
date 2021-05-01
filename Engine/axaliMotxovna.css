@@ -1,0 +1,201 @@
+/*
+ფერების პალიტრა, რომელსაც ყველგან გამოვიყენებ:
+https://www.canva.com/colors/color-palettes/room-for-comfort/;
+https://coolors.co/f94144-f3722c-f8961e-f9c74f-90be6d-43aa8b-577590;
+
+ფონტები: font-family: 'Ubuntu Mono', monospace;
+
+*/
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Ubuntu+Mono&display=swap');
+
+html{
+    cursor: context-menu!important; 
+}
+
+
+body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background-color: rgb(235, 233, 233)!important;
+    height: 100vh;
+}
+button{
+    cursor: pointer!important;
+}
+
+a {
+    text-decoration: none!important;
+    color: black!important;
+}
+.leave{
+    grid-area: 1/ 1/ span 3 / 1;
+    width: 5.5vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    background-color:#868B8E;
+    opacity: 0.4;
+    cursor: pointer;
+    transition: .3s ease;
+}
+.fa-sign-out-alt {
+    transform: rotate(180deg);
+    font-size: 3.5vw;
+}
+
+.leave:hover{
+    opacity: 1;
+ 
+}
+.leave:hover .fa-sign-out-alt {
+    color: #EEEDE7;
+}
+
+.kitxva {
+    font-size: 2em;
+}
+
+.containerForEntrance {
+    grid-area: 1/2/span 3/2;
+    align-self: center;
+    justify-self: center;
+}
+
+@media only screen and (max-width:625px){
+    .containerForEntrance {
+        grid-area: 1/1/span 3/span 3;
+        align-self: center;
+        justify-self: center;
+    } 
+    .kitxva {
+        font-size: 1.3em;
+    }
+}
+
+
+.kitxva, .timer, .spanning {
+    margin-bottom: 1em;
+    text-align: center;
+    cursor: context-menu;
+}
+
+#gilaki {
+    width: 100%;
+    font-size: 2em;
+    padding: 2px;
+}
+
+@media only screen and (max-width:330px){
+    #gilaki {
+        font-size: 1.3em;
+    }
+}
+
+.radio-toolbar input[type="radio"]:checked + label {
+    background-color:#bfb;
+    border-color: #4c4;
+}
+
+.radio-toolbar label {
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    font-family: sans-serif, Arial;
+    font-size: 16px;
+    border: 1px solid #444;
+    border-radius: 50px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    width: 100%;
+}
+input[type="radio"] {
+    display: none;
+}
+
+.card-1:hover {
+    box-shadow: 0 5px 5px rgba(0,0,0,0.19), 0 2px 5px rgba(0,0,0,0.23);
+    cursor: context-menu;
+}
+
+.boloKacuna {
+    cursor: pointer!important;
+    width: 100%;
+}
+
+
+
+#easyMode, #midMode, #hardMode {
+    background-color: transparent;
+    border-radius: 10px;
+    border: 0.5px solid black;
+    transition: .5s ease;
+    font-family: 'Ubuntu Mono', monospace;
+}
+#easyMode:hover {
+    background-color: rgb(67, 170, 139);
+    color: white;
+}
+#midMode:hover {
+    background-color: rgb(249, 199, 79);
+    color: white;
+}
+#hardMode:hover {
+    background-color: rgb(249, 65, 68);
+    color: white;
+}
+
+#nameQuizz, #surnameQuizz, #groupCode {
+    font-family: 'Architects Daughter', cursive;
+    font-weight: bold;
+    font-size: 1.8em;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.advilia, .sashualoa, .rtulia {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    width: 10vw;
+    font-size: 1.5em!important;
+}
+
+.fa-graduation-cap {
+    font-size: 15vw;
+}
+
+#daasrule{
+    justify-self: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 20%;
+}
+
+
+
+@media only screen and (max-width: 1206px){
+    .advilia, .sashualoa, .rtulia {
+        width: 10vw;
+        font-size: 1em!important;
+    }
+}
+@media only screen and (max-width: 1030px){
+
+    .advilia, .sashualoa, .rtulia {
+        width: 100%;
+        font-size: 1em!important;
+    }
+    .buttons {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+
+
+

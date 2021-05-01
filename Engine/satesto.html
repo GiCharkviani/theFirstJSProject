@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="copyright" content="Giorgi Charkviani">
+    <meta name="keywords" content="ქვიზი, ტესტი, ქვიზის შექმნა, HTML QUIZ, მაკროეკონომიკის ქივიზი, შრომის ეკონომიკის ქვიზი, შრომითი მიგრაციის ქვიზი, ფირმის ეკონომიკის ქვიზი, მაკროეკონომიკა, შრომის ეკონომიკა, შრომითი მიგრაცია, ფირმის ეკონომიკა">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./axaliMotxovna.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+    <title>შექმენი</title>
+
+    <link rel="stylesheet" href="./satesto.css">
+
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="./android-chrome-512x512.png">
+    <script defer>
+
+
+        var qvizi1 = new Array();
+
+
+        function addData() {
+            getData();
+            qvizi1.push({
+                Question: document.getElementById('question').value,
+                Answers: [document.querySelector('[answ]').value, document.querySelector('[answ1]').value, document.querySelector('[answ2]').value, document.querySelector('[answ3]').value],
+                correctAnsw: document.getElementById('correctAnsw').options[correctAnsw.selectedIndex].value
+            });
+
+            localStorage.setItem("ქვიზი1", JSON.stringify(qvizi1));
+            showData();
+            location.reload();
+        }
+
+
+
+        function getData() {
+            var str = localStorage.getItem("ქვიზი1");
+            if (str != null) {
+                qvizi1 = JSON.parse(str)
+            }
+        }
+
+        function deleteData() {
+            localStorage.clear();
+        }
+
+        function showData() {
+            getData();
+            var tbl = document.getElementById('myTableVissible');
+            var x = tbl.rows.length;
+            while (--x) {
+                tbl.deleteRow(x);
+            }
+            for (i = 0; i < qvizi1.length; i++) {
+
+                var r = tbl.insertRow();
+                var cell1 = r.insertCell();
+                var cell2 = r.insertCell();
+                var cell3 = r.insertCell();
+
+
+                cell1.innerText = qvizi1[i].Question;
+                cell2.innerText = qvizi1[i].Answers;
+                cell3.innerText = qvizi1[i].correctAnsw;
+
+            }
+
+        }
+
+    </script>
+
+    <script src="./satesto.js" defer></script>
+
+
+</head>
+
+<body>
+
+
+    <!--უკან გასვლა-->
+    <a href="./menu.html" class="leave"><i class="fas fa-sign-out-alt"></i></a>
+
+
+
+
+    <!--ავტორიზაცია-->
+    <div class="container containerForEntrance" entranceWhere hidden>
+        <form>
+            <div class="form-group">
+                <input nameQuizz type="text" class="form-control" id="nameQuizz" oninput="gamwvanebaN()"
+                    placeholder="სახელი">
+            </div>
+            <div class="form-group">
+                <input oninput="gamwvanebaS()" surnameQuizz type="text" class="form-control" id="surnameQuizz"
+                    placeholder="გვარი">
+            </div>
+            <div class="form-group">
+                <input groupCode oninput="gamwvanebaG()" type="text" class="form-control" id="groupCode"
+                    placeholder="ჯგუფის კოდი">
+            </div>
+            <div class="buttons">
+                <button dawkeba id="dawkeba" type="button" class="dawkeba" value="დაწყება">დაწყება</button>
+
+            </div>
+        </form>
+    </div>
+
+
+    <!--ქვიზი-->
+    <form name="quizi" id="forma" class="radio-toolbar containerForEntrance" quizWhere hidden>
+
+        <div hereWeAre>
+
+
+        </div>
+
+
+        <button type="button" name="gilaki" button class="btn btn-outline-dark mt-3" id="gilaki">
+            შემდეგი <span class="badge badge-light"></span>
+        </button>
+
+
+
+        <div class="progress mt-5 fexi">
+        </div>
+    </form>
+
+
+    <div class="containerForEntrance" finishEnd hidden>
+        <button type="button" name="daasrule" button class="btn btn-outline-dark mt-3" id="daasrule">
+            <i class="fas fa-graduation-cap"></i><span class="badge badge-light"></span>
+        </button>
+    </div>
+
+
+
+    <!--შედეგები-->
+    <div class="container containerForEntrance showUpResults" results hidden>
+
+        <table id="myTable" class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">სახელი</th>
+                    <th scope="col">გვარი</th>
+                    <th scope="col">ჯგუფის კოდი</th>
+                    <th scope="col">მოპოვებული ქულა</th>
+                </tr>
+            </thead>
+            <tbody resultsVar>
+
+            </tbody>
+
+        </table>
+        <div class="kidevScade">
+
+        </div>
+    </div>
+
+
+
+
+    <!--*შექმნა*-->
+
+
+    <form class="container-fluid container1 mt-5" container>
+        <h1 class="sheqmeni mb-5">შექმენი ქვიზი</h1>
+        <hr>
+        <!--კითხვა-->
+        <input class="form-control disable" placeholder="კითხვა" type="text" id="question">
+
+        <!--პასუხები-->
+        <div class="row mb-3 mt-3">
+            <div class="col-6">
+                <input class="form-control disable" placeholder="პასუხი 1" type="text" answ id="pasuxi" required>
+            </div>
+            <div class="col-6">
+                <input class="form-control disable" placeholder="პასუხი 2" type="text" answ1 id="pasuxi" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <input class="form-control disable" placeholder="პასუხი 3" type="text" answ2 id="pasuxi" required>
+            </div>
+            <div class="col-6">
+                <input class="form-control disable" placeholder="პასუხი 4" type="text" answ3 id="pasuxi" required>
+            </div>
+        </div>
+
+
+
+
+        <!--სწორი პასუხის შერჩევა-->
+        <label class="mt-3" for="correctAnsw">სწორი პასუხი:</label>
+        <select class="form-control disable " id="correctAnsw">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        <hr>
+
+        <!--დამატება-->
+
+
+        <button onclick="addData(); return false" title="დამატება" type="button" class="btn btn-success mt-2"
+            value="კითხვების დამატება | შემოწმება" type="submit" addBtn><i
+                class="fas fa-plus-square fa-3x"></i></button>
+
+        <br>
+        <hr>
+        <!--თაიმერი-->
+        <input placeholder="თაიმერი" class="mt-3" type="number" getTime disabled>
+        <br>
+
+        <!--აშაფვლა-->
+
+        <input type="checkbox" class="mt-4" id="checkbox" checked shuffling disabled>
+        <label class="labela" for="checkbox">აიშაფლოს</label>
+
+
+
+
+        <br>
+        <hr>
+        <!--მზადაა-->
+        <button type="button" title="გაუქმდება ქვიზის დამატების ფუნქცია" value="ქვიზი მზადაა"
+            class="btn btn-outline-primary mt-3" ready><i class="fas fa-clipboard-check fa-2x"></i></button>
+        <!--წაშლა-->
+
+        <button type="button" title="გასუფთავება" value="ქვიზის წაშლა" class="btn btn-outline-danger mt-3 washla" delete
+            type="button"><i class="fas fa-trash-alt"></i></button>
+
+
+        <br>
+
+        <!--დაწყება-->
+
+
+        <button type="button" forBeginning class="btn btn-info beginning dawkebiturt mt-3" value="ქვიზის დაწყება"
+            dawkebiturt disabled><i class="fas fa-play"></i></button>
+
+    </form>
+
+    <!--საიდბარი, სადაც შექმნილი ქვიზის კონტენტია-->
+    <table class="tabling table" id="myTableVissible">
+        <thead class="thead-light">
+            <tr>
+                <th class="w-10" scope="col">კითხვები</th>
+                <th scope="col">პასუხები</th>
+                <th scope="col">სწორია</th>
+            </tr>
+        </thead>
+    </table>
+
+
+
+    <script>
+        showData()
+    </script>
+
+
+
+
+
+
+
+</body>
+
+</html>

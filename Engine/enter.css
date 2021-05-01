@@ -1,0 +1,184 @@
+/*
+ფერების პალიტრა, რომელსაც ყველგან გამოვიყენებ:
+https://www.canva.com/colors/color-palettes/room-for-comfort/
+
+ფონტები: font-family: 'Ubuntu Mono', monospace;
+
+*/
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Ubuntu+Mono&display=swap');
+
+body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3,1fr);
+    height: 100vh;
+    width: 100vw;
+    justify-items: center;
+    align-items: center;
+    background-color: rgb(235, 233, 233)!important;
+}
+
+.choosingTime a {
+    text-decoration:none;
+    color: black;
+}
+
+/*შესვლისას*/
+.enteringGuy{
+    grid-area: 2/2/2/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+    width: 30vw;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    background:rgb(248, 248, 248);
+    border-radius: 20px;
+}
+.enteringGuy:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+input[type="text"]{
+    text-align: center;
+    font-family: 'Architects Daughter', cursive;
+    font-weight: bold;
+    font-size: 1.8em;
+}
+#saxeliLog{
+    height: 8vh;
+    width: 20vw;
+    background-color: #EEEDE7;
+}
+
+.textbox {
+	padding: 2px 4px;
+	font: 14px/24px "Lato", Arial, sans-serif;
+	color: #333;
+	width: 275px;
+	box-sizing: border-box;
+	letter-spacing: 1px;
+	border: 1px solid #ccc;
+	transition: 0.4s;
+}
+
+.textbox~ .focus-border:before,
+.textbox ~ .focus-border:after{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 0;
+	height: 2px;
+	background-color: #3399FF; 
+	transition: 0.4s;
+}
+
+.textbox ~ .focus-border:after{
+	top: auto;
+	bottom: 0;
+}
+.textbox~ .focus-border i:before,
+.textbox ~ .focus-border i:after{
+	content: ""; 
+	position: absolute;
+	top: 50%; 
+	left: 0; 
+	width: 2px;
+	height: 0; 
+	background-color: #3399FF; 
+	transition: 0.6s;
+}
+.textbox ~ .focus-border i:after{
+	left: auto;
+	right: 0;
+}
+.textbox:focus ~ .focus-border:before,
+.textbox:focus ~ .focus-border:after{
+	left: 0; 
+	width: 100%;
+	transition: 0.4s;
+}
+.textbox:focus ~ .focus-border i:before,
+.textbox:focus ~ .focus-border i:after{
+	top: 0; 
+	height: 100%;
+	transition: 0.6s;
+}
+.textbox:focus{
+	outline: none;
+}
+
+
+/*არჩევისას*/
+.choosingTime{
+    grid-area: 2/2/2/2;
+    display: flex;
+}
+
+
+
+.barbare, .random, .sheqmeni{
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    height: 20vh;
+    width: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; 
+    background-color: #e6e5e7;
+}
+
+.barbare:hover, .random:hover, .sheqmeni:hover  {
+    background: #EEEDE7;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.fa-chalkboard-teacher, .fa-tasks, .fa-edit {
+    color: #B9B7BD;
+    text-shadow: 0px 2px 3px #555;
+    font-size: 6vw;
+}
+
+
+@media only screen and (max-width:870px){
+    .choosingTime{
+        flex-direction: column;
+
+    }
+    .fa-chalkboard-teacher, .fa-tasks, .fa-edit {
+        font-size: 9vw;
+    }
+    .barbare, .random, .sheqmeni {
+    height: 22vh;
+    width: 22vw;
+    overflow: hidden;
+    }
+}
+
+@media only screen and (max-width: 870px){
+    input[type="text"]{
+        font-size: 1.3em;
+    }
+}
+@media only screen and (max-width: 683px){
+    input[type="text"]{
+        font-size: 1em;
+    }
+}
+@media only screen and (max-width: 553px){
+    input[type="text"]{
+        font-size: 1.2em;
+    }
+
+    .enteringGuy{
+        height: 50vh;
+        width: 50vw;
+    }
+
+    #saxeliLog{
+        height: 8vh;
+        width: 40vw;
+ 
+    }
+    
+}
