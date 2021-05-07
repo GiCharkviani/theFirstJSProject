@@ -370,7 +370,10 @@ dawkeba.addEventListener('click', function () {
 
                         document.querySelector('.timingGuy').hidden = true;
 
-                        document.querySelector('[finishEnd]').hidden = false;
+                         $('[finishEnd]').css({
+                        "visibility": "visible"
+                    })
+
 
 
 
@@ -381,7 +384,9 @@ dawkeba.addEventListener('click', function () {
 
                             document.querySelector('[results]').hidden = false;
 
-                            document.querySelector('[finishEnd]').hidden = true;
+                             $('[finishEnd]').css({
+                        "visibility": "hidden"
+                    })
 
 
                             getData();
