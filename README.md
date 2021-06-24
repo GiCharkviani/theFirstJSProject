@@ -1,6 +1,6 @@
 <center><b>ფინალური პროექტი</b></center>
 <br/>
-
+[პროექტის ლინკი](https://gicharkviani.github.io/theFirstJSProject/)
 ---
 
 #### შინაარსი
